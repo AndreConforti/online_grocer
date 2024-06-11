@@ -1,0 +1,9 @@
+services:     ## Determina os containeres que serão executados
+  web:        ## Nome dado para o container q está neste projeto
+    build: .  ## Builda o container a partir da própria pasta onde estamos. Com os parâmetros do nosso Dockerfile. 
+              ## Poderia ser qualquer imagem já pronta no Docker Hub
+    user: "1000:1000"  ## Define o usuário e grupo pelo UID:GID
+    ports:
+      - "8000:8000"    ## Tanto o container quanto a máquina local estarão na mesma porta
+    volumes:
+      - .:/app/project  ## Isso permite que as alterações nos arquivos do projeto local sejam refletidas no container.

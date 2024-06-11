@@ -1,0 +1,41 @@
+{% extends 'base_templates/base.html' %}
+
+{% load i18n %}
+{% load account %}
+{% load allauth %}
+
+{% block 'title' %}Confirme seu Email{% endblock 'title' %}
+
+{% block 'body' %}
+    <div class="row justify-content-center">
+        <div class="col col-sm-10 col-md-8 col-lg-6">
+            <div class="text-center m-5">
+                <h1>Confirme seu endereço de Email</h1>
+                {% if confirmation %}
+                    {% user_display confirmation.email_address.user as user_display %}
+                    {% if can_confirm %}
+                        <p class="mt-3">
+                            {% blocktrans with confirmation.email_address.email as email %}Por favor, confirme que  <a class="text-decoration-none text-dark" href="mailto:{{ email }}"><strong>{{ email }}</strong></a> é o endereço de email de <span><strong>{{ user_display }}</strong></span>.{% endblocktrans %}
+                        </p>
+                        {% url 'account_confirm_email' confirmation.key as action_url %}
+                        {% element form method="post" action=action_url %}
+                            {% slot actions %}
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-lg btn-danger">Confirmar</button>
+                            {% endslot %}
+                        {% endelement %}
+                    {% else %}
+                        <p>
+                            Não foi possível confirmar <span><strong>{{ email }}</strong></span> porque já foi confirmado por uma conta diferente.
+                        </p>
+                    {% endif %}
+                {% else %}
+                    {% url 'account_email' as email_url %}
+                    <p>
+                        Este link de confirmação por e-mail expirou ou é inválido. Por favor, <strong><a class="text-decoration-none text-dark" href="{{ email_url }}">emita uma nova solicitação de confirmação por email</a></strong>.
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>   
+{% endblock 'body' %}

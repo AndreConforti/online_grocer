@@ -1,0 +1,31 @@
+{% extends 'base_templates/base.html' %}
+
+{% load allauth %}
+{% load i18n %}
+
+{% block 'title' %}Confirmação de Acesso{% endblock 'title' %}
+
+{% block 'body' %}
+    <div class="row justify-content-center">
+        <div class="col col-sm-10 col-md-8 col-lg-6">
+            <div class="text-center m-5">
+                <h1>Confirmação de Acesso</h1>
+                <p>Por favor, autentique novamente para proteger sua conta.</p>
+                {% if reauthentication_alternatives %}
+                    {% element hr %}
+                    {% endelement %}
+                    {% element h2 %}
+                        {% translate "Alternative options" %}
+                    {% endelement %}
+                    <ul>
+                        {% for alt in reauthentication_alternatives %}
+                            <li>
+                                <a href="{{ alt.url }}">{{ alt.description }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock 'body' %}

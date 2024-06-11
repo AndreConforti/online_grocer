@@ -1,0 +1,25 @@
+{% extends 'base_templates/base.html' %}
+{% load i18n %}
+{% load allauth %}
+
+{% block 'title' %}Verifique seu endereço de Email{% endblock 'title' %}
+
+{% block 'body' %}
+    <div class="row justify-content-center">
+        <div class="col col-sm-10 col-md-8 col-lg-6">
+            <div class="text-center m-5">
+                <h1>Verifique seu endereço de Email</h1>
+                {% url 'account_email' as email_url %}
+                <p>
+                    Esta parte do site exige que verifiquemos se você é quem você afirma ser. Para isso, solicitamos que você verifique a propriedade do seu endereço de email.
+                </p>
+                <p>
+                    Enviamos um email para você para verificação. Por favor, clique no link dentro desse email. Se você não vir o email de verificação na sua caixa de entrada principal, verifique sua pasta de spam. Entre em contato conosco se você não recebê-lo dentro de alguns minutos.
+                </p>
+                <p>
+                    <strong>Nota:</strong> você ainda pode <a href="{{ email_url }}">alterar seu endereço de email</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock 'body' %}
