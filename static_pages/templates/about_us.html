@@ -1,0 +1,22 @@
+{% extends 'base_templates/base.html' %}
+
+{% block 'title'%}Termos de Uso{% endblock 'title' %}
+
+{% block 'body'%}
+                <h1>Quem Somos</h1>
+                <hr>
+                <p>
+                    Quitanda Online é uma loja virtual (e-commerce) fictícia criada como estudo de caso para o curso "Desenvolvimento de uma Loja Virtual com Bootstrap 5" disponibilizado gratuitamente pelo Prof. Ricardo Maroquio em seu canal no YouTube.
+                </p>
+                <p>
+                    O código-fonte pode ser obtido via GitHub, conforme orientações apresentadas ao longo dos vídeos do curso no YouTube. Este estudo de caso pode ser utilizado livremente como base para outras lojas virtuais, sem ônus para o usuário.
+                </p>
+                <p>
+                    O projeto Quitanda Online foi criado apenas no seu "Front-End". Isso quer dizer que não há a lógica de programação envolvida com o banco de dados para o armazemanto das informações de clientes, produtos ou fornecedores.
+                </p>
+                    Foi então que tomei a inciativa de implementar o "Back-End", realizando a criação das informações e o armazenamento persistente dos dados.
+                    Caso se interessar e quiser baixar o código-fonte, fique à vontade. Melhorias, sugestões, críticas e reclamações podem ser adicionadas na página <a class="text-decoration-none text-dark" href="{% url 'contact_us' %}"><strong>"Contato pelo Site"</strong></a>. Espero que aproveitem a experiência!
+                <p>
+                    Bons estudos e boa programação!
+                </p>
+{% endblock 'body' %}
