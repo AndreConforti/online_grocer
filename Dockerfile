@@ -4,9 +4,6 @@ FROM python:3.11
 # Atualizações (opcional, se necessário)
 RUN apt-get update && apt-get upgrade -y
 
-# Variável de ambiente
-ENV PYTHONUNBUFFERED 1
-
 # Diretório onde vai ficar a aplicação dentro do container
 WORKDIR /app/project
 
