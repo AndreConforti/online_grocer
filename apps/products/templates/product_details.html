@@ -1,0 +1,59 @@
+{% extends 'base_templates/base.html' %}
+
+{% block 'title'%}Detalhes do Produto{% endblock 'title' %}
+
+{% block 'body'%}
+
+    {% if not product %}
+    <div class="col-12 col-sm-6">
+        <h1>Produto não encontrado</h1>
+        <p>
+            Desculpe, mas o produto selecionado não foi encontrado em nossa base de dados. Por favor, verifique novamente
+        </p>
+    </div>
+    {% else %}
+    
+        <div class="row g-3">
+            <div class="col-12 col-sm-6">
+                <img src="{{ product.photo.url }}" class="img-thumbnail" id="imgProduto">
+                <br class="clearfix">
+                <div class="row my-3 gx-3">
+                    <div class="col-3">
+                        <img src="{{ product.photo.url }}" class="img-thumbnail" onclick="trocarImagem(this)">
+                    </div>
+                    <div class="col-3">
+                        <img src="{{ product.photo.url }}" class="img-thumbnail" onclick="trocarImagem(this)">
+                    </div>
+                    <div class="col-3">
+                        <img src="{{ product.photo.url }}" class="img-thumbnail" onclick="trocarImagem(this)">
+                    </div>
+                    <div class="col-3">
+                        <img src="{{ product.photo.url }}" class="img-thumbnail" onclick="trocarImagem(this)">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6">
+                <h1>{{ product.name }}</h1>
+                <p>
+                    {{ product.description }}
+                </p>
+                <p>
+                    <button class="btn btn-danger btn-lg mb-3 mb-xl-0 me-2">
+                        <i class="bi-cart"></i> Adicionar ao Carrinho
+                    </button>
+                    <button class="btn btn-outline-danger btn-lg">
+                        <i class="bi-heart"></i> Adicionar aos Favoritos
+                    </button>
+                </p>
+            </div>
+        </div>
+    {% endif %}
+
+    <script>
+        function trocarImagem(elemento){
+            var imgProduto = document.getElementById("imgProduto");
+            imgProduto.src = elemento.src;
+        }
+    </script>
+
+{% endblock 'body' %}
