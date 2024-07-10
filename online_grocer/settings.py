@@ -29,9 +29,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     ## My Apps
-    'store',
-    'customer',
-    'static_pages',
+    'apps.store.apps.StoreConfig',
+    'apps.customer.apps.CustomerConfig',
+    'apps.static_pages.apps.StaticPagesConfig',
+    'apps.products.apps.ProductsConfig',
     ## 3th Apps
     'allauth',
     'allauth.account',
