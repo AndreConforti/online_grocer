@@ -67,16 +67,16 @@
                         {{ product.sale_price }}
                     </div>
                     <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                    <p class="card-text truncar-3l">
-                        Banana prata da melhor qualidade possível, direto do produtor rural para sua mesa.
+                    <h5 class="card-title text-truncate">{{ product.name }}</h5>
+                    <p class="card-text text-truncate">
+                        {{ product.description }}
                     </p>
                     </div>
                     <div class="card-footer">
                         <a href="#" class="btn btn-danger mt-2 d-block">
                             Adicionar ao Carrinho
                         </a>
-                        <small class="text-success">320,5kg em estoque</small>
+                        <small class="text-success">R$ {{ product.sale_price }} em estoque</small>
                     </div>
                 </div>
             </div>
